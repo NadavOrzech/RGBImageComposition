@@ -1,0 +1,6 @@
+[submodule "CS2Real"]
+	path = CS2Real
+	url = git@github.com:mingrui-zhao/CS2Real.git
+[submodule "ResizeRight"]
+	path = ResizeRight
+	url = https://github.com/assafshocher/ResizeRight.git

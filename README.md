@@ -39,7 +39,15 @@ This implementation synthesize object into BDD100k dataset images.
 <span align="center"><img width="722" height="331" src="fig/code_architecture.png"/></span>
 
 
-## Examples
-<span align="left"><img width="331" height="331" src="fig/img_sample_3.png"/></span>
-<span align="right"><img width="331" height="331" src="fig/res_sample_3.png"/></span>
+## Results
+Example #1
+<span align="left"><img width="250" height="250" src="fig/img_sample_3.png"/></span>
+<span align="right"><img width="250" height="250" src="fig/res_sample_3.png"/></span>
 
+Example #2
+<span align="left"><img width="250" height="250" src="fig/img_sample_1.png"/></span>
+<span align="right"><img width="250" height="250" src="fig/res_sample_1.png"/></span>
+
+Example #3
+<span align="left"><img width="250" height="250" src="fig/img_sample_2.png"/></span>
+<span align="right"><img width="250" height="250" src="fig/res_sample_2.png"/></span>

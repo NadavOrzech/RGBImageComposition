@@ -34,3 +34,7 @@ This implementation synthesize object into BDD100k dataset images.
     ```
     python main.py
     ```
+
+
+<span align="center"><img width="768" height="576" src="fig/code_architecture.png"/></span>
+

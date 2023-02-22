@@ -7,7 +7,7 @@ from utils.json_editing import *
 from utils.image_editing import *
 from modules.ILVRSampler import ILVRSampler
 from modules.BDDDataGenerator import BDDDataGenerator
-from modules.ResultsOrginizer import ResultsOrginizer
+from modules.ResultsOrganizer import ResultsOrganizer
 from config.ILVR_options import create_ILVR_argparser
 from config.base_options import create_argparser
 
@@ -27,7 +27,7 @@ def main():
     opt.class_name
     )
     sampler = ILVRSampler(ilvr_opt)
-    res_orginzier = ResultsOrginizer(opt.output_dir)
+    res_orginzier = ResultsOrganizer(opt.output_dir)
     
     if opt.bg_img_name is not None \
         or opt.obj_img_name is not None \

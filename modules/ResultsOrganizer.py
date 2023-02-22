@@ -3,7 +3,7 @@ import datetime
 
 from utils.json_editing import save_json
 
-class ResultsOrginizer():
+class ResultsOrganizer():
     def __init__(self, output_dir) -> None:
         os.makedirs(output_dir, exist_ok=True)  
 

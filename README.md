@@ -13,9 +13,9 @@ This implementation synthesize object into BDD100k dataset images.
 2. Add submodule Resizeright (https://github.com/assafshocher/ResizeRight) and CS2Real (https://github.com/mingrui-zhao/CS2Real)
 
 3. Download the pre-trained diffusion model to /models/ldm/stable-diffusion-v1 from https://huggingface.co/CompVis/stable-diffusion-v-1-4-original
-        '''bash
+        ```bash
         mkdir -p models/ldm/stable-diffusion-v1/
-        '''
+        ```
 
 4. Download BDD100k dataset:
     - Download BDD100k images and labels from: https://www.bdd100k.com/

@@ -10,14 +10,14 @@ import cv2
 from utils.json_editing import load_json, save_json
 from utils.image_editing import get_image_shape, paste_object_to_image
 
-random.seed(1)
 
 class BDDDataGenerator():
     def __init__(self, 
                  bdd_labels_file_path: Path,
                  bdd_imgs_dir_path: Path,
                  objects_and_masks_dir_path: Path,
-                 class_label: str               
+                 class_label: str,
+                 seed: int              
                  ) -> None:
         
         self.objs_path_list = [obj_file for obj_file in sorted(glob.glob(os.path.join(objects_and_masks_dir_path,"*_obj_*")))]
@@ -27,7 +27,7 @@ class BDDDataGenerator():
 
         self.prompt_template = "A CLASS on a SCENE at TIMEOFDAY on a WEATHER weather"
         self.label = class_label
-        aa=2
+        random.seed(seed)
 
     def sample(self,number_of_samples=1, bg_img_name=None, obj_img_name=None, x=None, y=None, prompt=None):
         curr_bg_img_path : Path

@@ -21,11 +21,12 @@ def main():
     opt, unknown = base_parser.parse_known_args()
 
     bdd_generator = BDDDataGenerator(
-    opt.bdd_labels_file,
-    opt.bdd_images_dir,
-    opt.objects_images_dir,
-    opt.class_name
-    )
+        opt.bdd_labels_file,
+        opt.bdd_images_dir,
+        opt.objects_images_dir,
+        opt.class_name,
+        opt.seed
+        )
     sampler = ILVRSampler(ilvr_opt)
     res_orginzier = ResultsOrganizer(opt.output_dir)
     

@@ -21,7 +21,7 @@ def create_argparser():
     parser.add_argument(
         "--objects_images_dir",
         type=str,
-        default="/disk2/nadav/__temp_results_/",
+        default="bus_obj",
         help="path of objects and masks images directory",
     )
 
@@ -35,7 +35,7 @@ def create_argparser():
     parser.add_argument(
         "--samples_per_bdd_image",
         type=int,
-        default=1,
+        default=2,
         help="number of automatically generated samples per bdd image",
     )
 
@@ -89,6 +89,11 @@ def create_argparser():
         help="the prompt to render"
     )
 
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=0,
+    )
             
     return parser
 

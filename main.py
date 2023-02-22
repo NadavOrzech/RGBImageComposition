@@ -11,8 +11,6 @@ from modules.ResultsOrganizer import ResultsOrganizer
 from config.ILVR_options import create_ILVR_argparser
 from config.base_options import create_argparser
 
-os.environ['CUDA_VISIBLE_DEVICES'] = "1"
-
 def main():
     ilvr_parser = create_ILVR_argparser()
     ilvr_opt, unknown = ilvr_parser.parse_known_args()

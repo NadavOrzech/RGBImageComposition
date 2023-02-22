@@ -46,14 +46,7 @@ def create_ILVR_argparser():
         default=1,
         help="how many samples to produce for each given image",
     )
-    
-    parser.add_argument(
-        "--batch_size",
-        type=int,
-        default=1,
-        help="batch size (number of images in single forward pass)",
-    )
-    
+       
     parser.add_argument(
         "--scale",
         type=float,

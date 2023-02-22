@@ -4,8 +4,6 @@ import argparse
 def create_argparser():
     parser = argparse.ArgumentParser()
 
-
-    
     parser.add_argument(
         "--bdd_labels_file",
         type=str,
@@ -26,7 +24,6 @@ def create_argparser():
         default="/disk2/nadav/__temp_results_/",
         help="path of objects and masks images directory",
     )
-
 
     parser.add_argument(
         "--output_dir",
@@ -93,6 +90,5 @@ def create_argparser():
     )
 
             
-
     return parser
 

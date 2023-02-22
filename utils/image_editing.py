@@ -54,4 +54,4 @@ def paste_object_to_image(obj_path, background_path, mask_path, output_path, x=0
 
     # object_center = (x+(resized_img_shape[1]//2), y+(resized_img_shape[0]//2))
 
-    return composed_image, resized_mask, (x,y)
+    return composed_image, resized_mask, (x, y, x+resized_img_shape[1], y+resized_img_shape[0])

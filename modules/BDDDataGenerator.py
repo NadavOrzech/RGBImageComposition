@@ -78,7 +78,7 @@ class BDDDataGenerator():
             assert os.path.isfile(curr_obj_img_path)
 
 
-        composed_img, composed_mask, coordinates = self.composite_object(
+        composed_img, composed_mask, bbox = self.composite_object(
                                             background_img_path=curr_bg_img_path,
                                             object_img_path=curr_obj_img_path,
                                             mask_img_path=curr_mask_img_path,
@@ -87,7 +87,7 @@ class BDDDataGenerator():
                                             bdd_img_dict=self.bdd_labels[bg_img_index],
                                         )
         
-        return composed_img, composed_mask, [prompt]*number_of_samples, coordinates, (curr_bg_img_path, curr_obj_img_path), self.bdd_labels[bg_img_index]
+        return composed_img, composed_mask, [prompt]*number_of_samples, bbox, (curr_bg_img_path, curr_obj_img_path), self.bdd_labels[bg_img_index]
 
 
     def composite_object(
@@ -102,10 +102,10 @@ class BDDDataGenerator():
 
         if x is not None and y is not None:
             # for manualy placed objects
-            output_image, output_mask, (x,y) = paste_object_to_image(obj_path=object_img_path, background_path=background_img_path, 
+            output_image, output_mask, bbox = paste_object_to_image(obj_path=object_img_path, background_path=background_img_path, 
                                 mask_path=mask_img_path, output_path=None, x=x, y=y)
             
-            return [Image.fromarray(output_image.astype(np.uint8))], [Image.fromarray(output_mask.astype(np.uint8))], [(x,y)]
+            return [Image.fromarray(output_image.astype(np.uint8))], [Image.fromarray(output_mask.astype(np.uint8))], [bbox]
 
 
         obj_shape = get_image_shape(object_img_path)
@@ -113,12 +113,12 @@ class BDDDataGenerator():
         for i in range(number_of_samples):
             x,y, drivable_area  = self._get_coordinates_by_segmentation_map(bdd_img_dict,obj_shape)
 
-            output_image, output_mask, (x,y) = paste_object_to_image(obj_path=object_img_path, background_path=background_img_path, 
+            output_image, output_mask, bbox = paste_object_to_image(obj_path=object_img_path, background_path=background_img_path, 
                                     mask_path=mask_img_path, output_path=None, x=x, y=y)
 
             composed_imgs.append(Image.fromarray(output_image.astype(np.uint8)))
             composed_masks.append(Image.fromarray(output_mask.astype(np.uint8)))
-            coordinates.append((x,y))
+            coordinates.append(bbox)
         
         return composed_imgs, composed_masks, coordinates
 

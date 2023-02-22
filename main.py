@@ -5,11 +5,11 @@ sys.path.append("ResizeRight") # TODO
 
 from utils.json_editing import *
 from utils.image_editing import *
-from ILVRSampler import ILVRSampler
-from BDDDataGenerator import BDDDataGenerator
-from ResultsOrginizer import ResultsOrginizer
-from ILVR_options import create_ILVR_argparser
-from base_options import create_argparser
+from modules.ILVRSampler import ILVRSampler
+from modules.BDDDataGenerator import BDDDataGenerator
+from modules.ResultsOrginizer import ResultsOrginizer
+from config.ILVR_options import create_ILVR_argparser
+from config.base_options import create_argparser
 
 os.environ['CUDA_VISIBLE_DEVICES'] = "1"
 
@@ -36,7 +36,7 @@ def main():
         opt.num_of_images = 1
 
     for kk in range(opt.num_of_images):
-        img, mask, prompt, coordinates, paths, bdd_labels = bdd_generator.sample(
+        img, mask, prompt, bbox, paths, bdd_labels = bdd_generator.sample(
             number_of_samples=opt.samples_per_bdd_image, 
             bg_img_name=opt.bg_img_name,
             obj_img_name=opt.obj_img_name,
@@ -48,9 +48,7 @@ def main():
 
         result = sampler.sample(img,mask,prompt)
         
-        res_orginzier.save_results(paths[0], paths[1], img, result, coordinates, prompt)
-
-        aa=2
+        res_orginzier.save_results(paths[0], paths[1], img, result, bbox, prompt, bdd_labels, opt.class_name)
 
 
 

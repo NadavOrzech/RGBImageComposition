@@ -210,12 +210,12 @@ class ILVRSampler():
                             # encode (scaled latent)
                             t_enc_in = int(self.strength_in * self.ddim_steps)
                             if t_enc_in < self.ddim_steps:
-                                z_enc_in = self.sampler.stochastic_encode(init_latent, torch.tensor([t_enc_in]*batch_size).to(device))
+                                z_enc_in = self.sampler.stochastic_encode(init_latent, torch.tensor([t_enc_in]*batch_size).to(self.device))
                             else:  # strength >= 1 ==> use only noise
                                 z_enc_in = torch.randn_like(init_latent)
                             t_enc_out = int(self.strength_out * self.ddim_steps) if self.strength_out is not None else t_enc_in
                             if t_enc_out < self.ddim_steps:
-                                z_enc_out = self.sampler.stochastic_encode(init_latent, torch.tensor([t_enc_out] * batch_size).to(device))
+                                z_enc_out = self.sampler.stochastic_encode(init_latent, torch.tensor([t_enc_out] * batch_size).to(self.device))
                             else:  # strength >= 1 ==> use only noise
                                 z_enc_out = torch.randn_like(init_latent)
                             z_enc = latent_mask * z_enc_out + (1 - latent_mask) * z_enc_in if latent_mask is not None else z_enc_out

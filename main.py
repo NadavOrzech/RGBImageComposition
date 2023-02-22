@@ -1,7 +1,7 @@
 import os
-import sys
-sys.path.append("CS2Real")
-sys.path.append("ResizeRight") # TODO
+# import sys
+# sys.path.append("CS2Real")
+# sys.path.append("ResizeRight") # TODO
 
 from utils.json_editing import *
 from utils.image_editing import *
